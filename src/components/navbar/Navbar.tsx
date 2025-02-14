@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Navbar() {
   return (
@@ -7,7 +8,7 @@ function Navbar() {
             flex 
             justify-center 
             py-4 
-            bg-indigo-900 
+            bg-purple-900 
             text-white
         '>
             <div className='
@@ -17,7 +18,10 @@ function Navbar() {
                 text-lg
                 px-6
             '>
-                Blog Pessoal
+                <Link to= "/home" 
+                className="text-2xl font-bold font-[Monomakh]">
+                    dev[Alana Oliv]
+                </Link>
 
                 <div className='
                     flex 
@@ -25,12 +29,24 @@ function Navbar() {
                     justify-around
                     pl-8
                     pr-8
+                    font-[Monomakh-xs]
+                    font-semibold
                 '>
-                    Postagens 
-                    Temas       
-                    Cadastrar tema 
+                    <Link to="/postagem">
+                    Postagens
+                    </Link>
+                    <Link to="/tema"> 
+                    Temas
+                    </Link>
+                    <Link to="/cadastrar">       
+                    Cadastrar tema
+                    </Link> 
+                    <Link to="/perfil">
                     Perfil 
-                    Sair 
+                    </Link>
+                    <Link to="/login">
+                        Sair 
+                    </Link>
                 </div>
             </div>
         </div>
