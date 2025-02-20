@@ -45,7 +45,7 @@ function Navbar() {
                     pr-8
                     font-semibold
                 '>
-                    <Link to="/postagem">
+                    <Link to='/postagens' className='hover:underline'>
                     Postagens
                     </Link>
                     <Link to='/temas' className='hover:underline'> 
