@@ -1,23 +1,27 @@
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
     
     const navigate = useNavigate();
 
-    const { handleLogout } = useContext(AuthContext)
+    const { usuario, handleLogout } = useContext(AuthContext)
 
     function logout() {
 
         handleLogout()
-        alert('O Usuário foi desconectado com sucesso!')
+        ToastAlerta('O Usuário foi desconectado com sucesso!', 'sucesso')
         navigate('/')
     }
-    
-  return (
-    <>
-        <div className='
+
+    let componente: ReactNode;
+
+    if (usuario.token !== ''){
+
+        componente = (
+            <div className='
             w-full 
             flex 
             justify-center 
@@ -63,6 +67,12 @@ function Navbar() {
                 </div>
             </div>
         </div>
+        )
+    }
+    
+  return (
+    <>
+        {componente}
     </>
   )
 }

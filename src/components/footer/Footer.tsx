@@ -1,13 +1,20 @@
 import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react"
+import { ReactNode, useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 
 
 function Footer() {
 
     let data = new Date().getFullYear()
 
-  return (
-    <>
-        <div className="
+     const { usuario } = useContext(AuthContext)
+
+     let componente: ReactNode
+
+     if (usuario.token !== ''){
+
+        componente = (
+            <div className="
             flex 
             justify-center 
             bg-purple-900
@@ -38,6 +45,11 @@ function Footer() {
                 </div>
             </div>
         </div>
+        )
+     }
+  return (
+    <>
+        {componente}
     </>
   )
 }
